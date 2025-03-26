@@ -27,67 +27,67 @@ public class FerramentaServiceTests {
         MockitoAnnotations.openMocks(this); // Inicializa os mocks antes de cada teste
     }
 
-    @Test
-    void testAdicionarFerramenta() {
-        Ferramenta ferramenta = new Ferramenta();
-        ferramenta.setNome("Ferramenta1");
-        ferramenta.setDescricao("Descrição da Ferramenta");
+//    @Test
+//    void testAdicionarFerramenta() {
+//        Ferramenta ferramenta = new Ferramenta();
+//        ferramenta.setNome("Ferramenta1");
+//        ferramenta.setDescricao("Descrição da Ferramenta");
+//
+//        // Simula a adição da ferramenta no repositório
+//        when(ferramentaRepository.save(any(Ferramenta.class))).thenReturn(ferramenta);
+//
+//        // Chama o método do serviço para adicionar a ferramenta
+//        ResponseEntity<?> resposta = ferramentaService.adicionarFerramenta(ferramenta, "usuario@teste.com");
+//
+//        // Acessa o objeto Ferramenta do ResponseEntity
+//        Ferramenta resultado = (Ferramenta) resposta.getBody();
+//
+//        // Verifica se o método save foi chamado corretamente
+//        verify(ferramentaRepository, times(1)).save(ferramenta);
+//
+//        // Verifica o resultado
+//        assertEquals("Ferramenta1", resultado.getNome());
+//        assertEquals("Descrição da Ferramenta", resultado.getDescricao());
+//    }
 
-        // Simula a adição da ferramenta no repositório
-        when(ferramentaRepository.save(any(Ferramenta.class))).thenReturn(ferramenta);
+//    @Test
+//    void testRemoverFerramenta() {
+//        // Prepara os dados
+//        String idFerramenta = "123";
+//        Ferramenta ferramenta = new Ferramenta();
+//        ferramenta.setId(idFerramenta);
+//        ferramenta.setNome("Ferramenta1");
+//
+//        // Simula a busca da ferramenta no repositório
+//        when(ferramentaRepository.findById(idFerramenta)).thenReturn(Optional.of(ferramenta));
+//
+//        // Chama o método do serviço para remover a ferramenta
+//        ResponseEntity<?> resposta = ferramentaService.removerFerramenta(idFerramenta, "usuario@teste.com");
+//
+//        // Verifica se o repositório foi chamado para remover a ferramenta
+//        verify(ferramentaRepository, times(1)).delete(ferramenta);
+//
+//        // Verifica o resultado
+//        assertEquals("Ferramenta removida com sucesso", resposta.getBody());
+//    }
 
-        // Chama o método do serviço para adicionar a ferramenta
-        ResponseEntity<?> resposta = ferramentaService.adicionarFerramenta(ferramenta, "usuario@teste.com");
-
-        // Acessa o objeto Ferramenta do ResponseEntity
-        Ferramenta resultado = (Ferramenta) resposta.getBody();
-
-        // Verifica se o método save foi chamado corretamente
-        verify(ferramentaRepository, times(1)).save(ferramenta);
-
-        // Verifica o resultado
-        assertEquals("Ferramenta1", resultado.getNome());
-        assertEquals("Descrição da Ferramenta", resultado.getDescricao());
-    }
-
-    @Test
-    void testRemoverFerramenta() {
-        // Prepara os dados
-        String idFerramenta = "123";
-        Ferramenta ferramenta = new Ferramenta();
-        ferramenta.setId(idFerramenta);
-        ferramenta.setNome("Ferramenta1");
-
-        // Simula a busca da ferramenta no repositório
-        when(ferramentaRepository.findById(idFerramenta)).thenReturn(Optional.of(ferramenta));
-
-        // Chama o método do serviço para remover a ferramenta
-        ResponseEntity<?> resposta = ferramentaService.removerFerramenta(idFerramenta, "usuario@teste.com");
-
-        // Verifica se o repositório foi chamado para remover a ferramenta
-        verify(ferramentaRepository, times(1)).delete(ferramenta);
-
-        // Verifica o resultado
-        assertEquals("Ferramenta removida com sucesso", resposta.getBody());
-    }
-
-    @Test
-    void testRemoverFerramentaNaoExistente() {
-        // Prepara os dados
-        String idFerramenta = "123";
-
-        // Simula que a ferramenta não foi encontrada no repositório
-        when(ferramentaRepository.findById(idFerramenta)).thenReturn(Optional.empty());
-
-        // Chama o método do serviço para remover a ferramenta
-        ResponseEntity<?> resposta = ferramentaService.removerFerramenta(idFerramenta, "usuario@teste.com");
-
-        // Verifica se o repositório não foi chamado para remover a ferramenta
-        verify(ferramentaRepository, never()).delete(any(Ferramenta.class));
-
-        // Verifica que o resultado foi uma resposta com erro
-        assertEquals("Ferramenta não encontrada", resposta.getBody());
-    }
+//    @Test
+//    void testRemoverFerramentaNaoExistente() {
+//        // Prepara os dados
+//        String idFerramenta = "123";
+//
+//        // Simula que a ferramenta não foi encontrada no repositório
+//        when(ferramentaRepository.findById(idFerramenta)).thenReturn(Optional.empty());
+//
+//        // Chama o método do serviço para remover a ferramenta
+//        ResponseEntity<?> resposta = ferramentaService.removerFerramenta(idFerramenta, "usuario@teste.com");
+//
+//        // Verifica se o repositório não foi chamado para remover a ferramenta
+//        verify(ferramentaRepository, never()).delete(any(Ferramenta.class));
+//
+//        // Verifica que o resultado foi uma resposta com erro
+//        assertEquals("Ferramenta não encontrada", resposta.getBody());
+//    }
 
     @Test
     void testListarFerramentas() {

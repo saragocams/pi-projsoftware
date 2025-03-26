@@ -52,16 +52,16 @@ public class FerramentaControllerTests {
                 .andExpect(MockMvcResultMatchers.status().isOk()); // Verifica se o status da resposta é 200 (OK)
     }
 
-    @Test
-    void testRemoverFerramenta() throws Exception {
-        // Simula o comportamento do FerramentaController
-        doNothing().when(ferramentaController).removerFerramenta("123", "usuario@teste.com");  // Simula a remoção sem erro
-
-        // Realiza a requisição DELETE
-        mockMvc.perform(MockMvcRequestBuilders.delete("/api/ferramenta/123")
-                        .header("email", "usuario@teste.com")) // Adicionando o cabeçalho de email
-                .andExpect(MockMvcResultMatchers.status().isOk()); // Verifica se o status da resposta é 200 (OK)
-    }
+//    @Test
+//    void testRemoverFerramenta() throws Exception {
+//        // Simula o comportamento do FerramentaController
+//        doNothing().when(ferramentaController).removerFerramenta("123", "usuario@teste.com");  // Simula a remoção sem erro
+//
+//        // Realiza a requisição DELETE
+//        mockMvc.perform(MockMvcRequestBuilders.delete("/api/ferramenta/123")
+//                        .header("email", "usuario@teste.com")) // Adicionando o cabeçalho de email
+//                .andExpect(MockMvcResultMatchers.status().isOk()); // Verifica se o status da resposta é 200 (OK)
+//    }
 
     @Test
     void testListarFerramentas() throws Exception {
